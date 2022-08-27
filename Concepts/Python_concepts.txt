@@ -1,0 +1,939 @@
+Keywords : holding data, extracting data, requirement.
+
+	look everything as a dataset and using loops to extract them.
+
+24/06/2022
+
+	String Operations:
+		find() 		<- finds the index of first occurence of the substring 
+		count()		<- number of time substring occuring in the string 			Both are case sensitive
+		split()		<- splits the string based on the specified delimiter and 
+						outputs that in a list format.
+		strip()		<- Removes space before and after the string
+		replace()   	<- Replaces string with specifies string
+		"str".join(str1)	<- Add "str" value after every character to the string (str1) 
+		s.center(5,"b")	<- Decoration purpose
+		s.expandtabs()
+		s.isspace() ... etc
+
+25.6.2022
+		
+	Started about List Operations
+
+27.6.2022
+	List Operations:
+		Traversing
+		max() 			<- General function which find out the maximum of the specified iterables **Note -> The itrable should 
+						   have same datatype.
+		
+		append()			<- adds specified value of any data-type at the end of the list	
+	
+					Concatination of list with any other data-type is not allowed.
+
+		insert(index, "value")	<- Inserts object at specified *index*  of the list and shifts the element to the right which was 
+			present their earlier.
+
+		extend()			<- Concatenated the specified list/ iterable object to the function.
+		pop()				<- Removes the last element of the list.
+		remove()			<- Removes the first occurence of the specified value of the function.
+		reverse()
+		sort()
+
+	List Comprehension:
+		Writing multiple line of code into a single line code.
+
+28.06.2022	Implemented list comprehension examples. 
+
+29.06.2022	
+	
+		TUPLES
+			Collections similar to list with some differences.
+			Defined by ().
+			Tuples are immutable.
+			We can perform append operation here.
+			There are limited no of predefined functions available because of the immutability.
+
+		SETS 
+			Collection that holds distinct data.
+			It is case-sensitive.
+			They are iterable.
+			Index operation is not supported.
+			Set is an unordered data.
+			They do not support nested collection.
+
+30.06.2022	
+		Functions in sets :
+			set.add()
+			set.remove()
+			set.clear()
+			set.difference()
+
+		Conversion between different collections can happen in python.
+
+		
+		Dictionary :
+			Data is stored in key:value pair.
+			{} is used for representation.
+			It has unique key, but have different keys with same value.
+			Special case character as a keys are not allowed.
+			Value of a dictionaty can have collection .
+			Tuple can be a key in dictionary.
+
+1.07.2022
+		Dictionary Comprehension.
+		Doubt Solving
+		Assignmemnt 1 done
+
+2.07.2022
+		Functions :
+			We write the block of code that can be used again and again.. Modular/Functional programming.
+			Functions increases re-usability and also increases the efficiency.	
+
+			key-word to define the function : def
+			
+			def <function_name>( parameters/signatures):  <-- : is important
+				{
+					body of the function
+				}
+
+			function_name() <-- function calling
+
+			There is a concept of scoping in functions , means where can we access that particular function like in the
+		same jupyter-notebook, between different notebooks, etc.
+				
+4.07.2022
+
+		Return statement.
+		We can return multiple elements from a function in python. <-- returns it as a collection of tuple.
+		Since functions can return multiple elements we can store them in different variables.
+		The number of variables should be same as the number of elements returned by a function.
+
+		We can specify the default value of the variables if not specified while passing the argument.
+			The value of the variables are definied while defining the function.
+			eg.    def val( a, b:34):
+
+		*args is used to accept multiple data from the function.
+		 **kwargs	key-word args. It takes n number of arguments but in key value pair, it returns dictionary.
+
+5.07.2022
+		The name of the variables can be args,kwargs anything just mention the * and ** when needed.
+	
+		def func_1(a, *args)  <-- while calling the function need to specify the argument a in order to specify the value of a.
+						Else it will assign the value to *args.
+
+		Same with def func_1(*args,a)
+	
+		Lambda Funtion :
+			Anonymous function in which description of the process is represented in single line.
+			Key-word lambda is used in order to define the function.
+	
+			Eg. m = lambda a,b : a+b
+
+			It has one expression which is evaluated and returned. 
+		
+		Local and Global Scope
+ 
+		DocString --->	Where the hint about the function described.
+					Defined by """ """  inside the function.
+			
+		Iterator, Iterable And Generator
+
+			Iterable -> Meaning we will be able to extract the data and convert that into iterator.
+					They are converted into iterator and then we can extract the data one at the time or 
+					index-wise.
+
+					Iterable are not iterator by-default they need to be converted into iterator object.
+					Iter is the in-bulit function that converts iterable to iterator.			
+
+			Iterator ->	It has special functionality in which some variables keep track of the index of the
+					of that particular object.
+
+06.07.2022
+		
+		Generator:	It will return the object which will have the series of values stores. "It memorises what it has done in the
+			previous step ".
+			It creates the function as generator function.
+			yield is the keyword.			
+
+			def test(n):
+				for i in range(n):
+					yield(i)	
+	
+			
+		File Handling:
+			f.open() 		<-- 	function.
+			f.write("DATA") 	<-- 	The string will be apended to the file.
+			f.close()		<-- 	Closes the connection.
+			f.read()		<-- 	Default cursor will begin from the start and it will reach the end.
+			f.seek()		<--	Resetting cursor to the specified position.
+			f.readline()	<-- 	Reads data line-by-line.
+
+
+07.07.2022	
+		f1.fileno()	 
+		os package : where we can change the current working directory and execute the command of the OS.
+		Looked at various OS commands.
+
+08.07.2022
+		Logging and Debugging
+			
+			Logging : Capturing tha activity (logging the activity) in database , such that if any error occurs
+				then the it will be easy to find.
+				Helps in creating the reports.
+	
+				Kinds of information that are logged :
+					1. DEBUG	<-- 	Detail information of each and every process.
+					2. Info 	<-- 	Information of the software.
+					3. War	ning 	<-- 	Any information about the availabilty of latest software or about 
+						deprecication of library which the user can take action .
+					4. Error 	<--	Error messages  will be logged
+					5. Critical	<--	
+
+			Python package for logging is " logging ".
+					
+10.07.2022:
+		Imlementing Logging using ,menu-driven code.
+		Writing multiple instance of logger.
+		Printing Logging information in console using the StreamHandler avaiilable in the logging.
+				
+11.07.2022:
+		
+		Intro:
+				Again understanding multiple instance of logging. 
+			Normally when we import logging and if we log the information, it logs them as the logging instance which is root.
+			Whenever the information is logged it adds the name as root to the message. If the logging is done by multiple user
+			then it becomes difficult to identify which user has particular problem.
+			If they are identified by the name then it also becomes easy for analysis like what are the common errors face by multiple
+			user and the same solution can be provided.
+
+			To solve the above problem we create multiple instances of logging.
+			
+				Eg.   logger_1 = logging.getlogger('log1')  {	where log1 is the name of that instance }
+
+					logger_1.info("MEssage")		<-- This will log the msg as logger_1
+
+		
+		Outputing the log to the console :
+
+			If we need to log the information  to the console as well then we need to create the instance of StreamHandler which is 
+			available in the logging class.
+
+					Eg.  	console_log = logging.StreamHandler()
+
+					format = "%(asctime)s %(message)s"					
+
+					console_log.setFormatter(format)		<-- Sets the format.
+		
+		
+		Practiced logging and was successful.
+
+		DEBUGGING :
+
+			Debugger tool is not readily available in the jupyter notebook.	So we need to install it from online repository (
+		either from pip or conda).
+			Name of the library is pdb.
+			Since we are using the interactive notebook we will download ipdb.
+			
+		 	Functions of ipdb :	set_trace() 
+				
+12.07.2022:
+		Modules And Exceptions :
+
+			Module is a python file which has functions/methods having differnet executions.
+
+				import module_name 
+			
+				eg.	
+					import math  <-- math is a standard module which is already available in python package.
+			
+				There is another way to include modules along with specified methods/functions of the particular modules.
+			
+				Format : from module_name import method_name
+
+				We can write the eg1. as : from math import *
+		
+			Created our own module (python file) test.py which is their in same location as the jupyter notebook and then 
+		imported it from the jupyter notebook.
+
+		import imp <-- imp is the module which has reload function which imports the module again.
+		
+13.07.2022:
+	
+		Created Package and the modules inside the package.
+		In jupyter notebook there is no need to create the __init__.py file as it creates uts by default. But for the text editors
+	We need to create the __init__.file for turning the folder into package. 
+
+	Exception Handlling :
+			There are two types of errors : 1. runtime error and 2. Syntactic error.
+
+			We write the code that is susceptable to the run-time error in the try block.
+			When we write a code in a try block, we need another block for handling the error, the exception block.
+		
+
+14.07.2022:
+
+		These Error modules are created inside the exception module.
+	
+		try :		
+
+			- - - - - - - - - - - - - - - - - - - - 
+				Suspicious CODE
+			- - - - - - - - - - - - - - - - - - - - 
+
+		except :		
+
+			- - - - - - - - - - - - - - - - - - - - 
+
+				Handling if the above code 
+				encounters a run-time error.
+
+			- - - - - - - - - - - - - - - - - - - - 
+		
+		The above Exception code will be able to handle any kind of run time error. But if we need to get the info about the type
+		of error it has encountered, we can do it with the help of the different error-modules that are defind in the exception module.
+
+		Exception is the superclass of all the exceptions modules mentioned below.
+
+		Different Error Modules in exception.
+			1. Arithimetic Error
+			2. DivisionBy-Zero Error
+			etc
+
+		NOTE :-
+			But with the use of the error module we can capture only that type of error.
+
+		Eg. 
+			try :
+		
+			except ArithimeticError as e:
+				
+		The above code handles only the Arithimetic Errors.
+
+		
+		Note : 
+			There is also an else block in try-except code. That block executes if the try executes successfully.
+
+
+		Another keyword : finally
+		
+		The code inside the finally block will execute itself everytime regardless of what happens in the above code.
+		Eg. Database connectivity :
+
+			If the file is opened and error occurs while writing into it , then we need to close the connection of the
+		database whether its the successful operation or any failure in the code or in the process. 
+		
+
+		Structure Of Exception Handling :	
+ 
+			try :
+				
+			except :
+
+			else :
+
+			finally :
+
+		NOte : 
+			We can have multiple except blocks.. Exceptions does not increase the cost of the code.
+			
+			Look Before You Leave  	<== For Loop
+		
+			Easier to ask for forgiveness than for permission 	<== Try catch
+
+			
+		
+		Generating own Exceptions:
+			We create out own exceptions by definfing a function and have a raise keyword in it.
+
+
+15.07.2022:
+
+		
+		OOPS :
+			Python supports both scripting and OOP .
+			
+			Problems with scripting (In Working Environment ) :
+				1. It is not easy to maintain.
+				2. Making code modular is not easy.
+
+			OO concepts like method-overloading, polymorphism , etc helps in writing better code and to take advantage of the
+			features.
+
+		
+			Keywords : Class, Object
+		
+				Class : Classification of real-world entity. Specifing the characteristic of the entity , basic structure /
+			properties of the entity and the functions it can perform.	
+		
+					It is a set of entity that exist in the world which we cannot touch, exactly specify the entity, etc.
+			
+				eg. 	animal <-- properties : 4 legs (eg) , has hairs on the body, teeths | functions: It can run.
+					car 	 <-- properties : 4 doors, 4 tyres, seats  functions :  It can move, Can turn-on the headlights.
+				
+			----------------------------------------------------------------------------------------------------------------------				
+
+				Object : It is the real world entity, it is the instance of a class which we can touch, can feel and can 	
+					specify .
+
+					In other words Object is a variable of a class.		
+				
+				Example :
+					class class_name :
+						p1 
+						p2 
+						p3 
+
+					obj1 = class_name()
+					obj1.p1 = val		<- specifing the value of property of obj1
+					obj1.p2 = val
+
+		
+				Eg :
+					class car:
+						pass
+		
+					Mahindra = car()
+					Mahindra.name = "Scorpio-N"
+					Mahindra.year = 2022
+					Mahindra.doors  = 5
+		
+					Toyota = car()
+					Toyota.name = "Fortuner"
+					Toyota.year = 2022
+					Toyota.doors  = 5		
+
+				Here we can see that we need to define the variable and assign value every-time.
+				To avoid that we need to define the variables in the class definition itself.
+
+				We make use of the __init__ function which is pre-defined function in python that helps
+				to initialize the variables ( properties ) of the  class.
+
+
+				Eg : 		
+					class car:
+						def __init__ (self, v1,v2,v3):		<-- first parameter acts as a pointer to a class.
+							self.v1 = v1
+							self.v2 = v2
+							self.v3 = v3
+
+
+
+16-07-2022
+		Creating methods inside the class:
+			
+			Normal definition :   def function_name:
+								---	body	---
+
+			While defining the function in the class we need to specify the pointer as one of the parameter. It helps to return the
+		variables defined inside the method by referring them.
+
+
+			class c1:
+				name = str()
+				def __init__(self, name)
+					self.name = name
+		
+				def return_name(self):
+					return self.name
+		
+			
+		Creating custom print statement for objects :
+				
+			When we try to print the object that we have created by default it prints the reference of the object which prints the
+		address of the object. If we want to change the object statement while printing we will use the pre-defined method of pyton
+		which is "__str__()". 
+
+			Eg. class c1:
+					def __str__(c):
+						return "This will appear while printing the object" 
+
+18.07.2022	
+		Exercise
+
+19.07.2022
+	
+		OOP Concepts
+
+		1. Abstraction : 
+
+			In abstraction we limit the access of data in the program. Limiting the access means whether to give access to a 
+			variable outside the class , outside the package, within the class ,etc.
+		
+			Unike other programming languages python does not make use of keywords like public, private and protected to abstract
+			the variable/data. Some special symbols are added before the variable to specify the type of abstraction.
+			
+			Eg. variable a :		  a  	<--	public
+							 _a 	<--	protected
+							__a	<--	private
+
+			Note  : 	
+		     		Python does not implement abstraction strictly. We can access the private variable outside of a class by using a technique.
+			
+				Eg. 	class test:
+						def __init__(self,a):
+							self.__a = a			__a 	<-- 	private
+				
+					t = test(4)
+					t.__a  	<-- error
+					t._test__a 	<-- will run perfectly
+		
+		----------------------------------------------------------------------------------------------------------
+
+		2. Inheritance :
+
+			Class acquires the property of parent class through inheritance which is a parent-child relationship.		
+		
+		
+			class child_class ( parent_class ):		  <-- parent class is already defined.
+
+			Note :- While initializing the child class we need to initialize the parent class variables as well and it is mandatory,
+				as we will not be able to use the elements of the parent class if not initialized.
+
+
+			Eg:   class Parent:
+					
+					def __init__(self, a,b,c):
+						self.a = a
+						self.b = b
+						self.c = c
+
+
+				class Child(Parent) :   <-- Inheriting the parent class
+						
+					def _init__(self, c_variable, *args): 	<--	c_variable is the variable of the child , we need to pass 
+																		*args to the parent class
+						self.j = c_variable
+						super( Child, self).__init__(*args)
+		
+
+20.07.2022
+		
+		Types Of Inheritance :
+		
+			There are different ways in which the concept of inheritance can be implemented :
+				Link : https://facingissuesonit.com/2019/09/30/java-inheritance-is-a/
+
+			In other  programming languages like JAVA , it is mentioned that multiple inheritance is not supported. But in python
+		we can implement multiple inheritance.
+		
+			There is one catch in multiple inheritance,  if there are common variables in the parent class then the child class will
+		give priority to the variable of the class which is mentioned first in the argument.
+
+			EG: 
+
+				class P1:
+					
+					a = "This is class 1"
+					b = "Class P1"
+
+				class P2:
+					
+					a = "This is class 2"
+					c = "Class P2"
+
+			1.	class child( P1, P2):
+					pass				<-- we dont need any body for the class in this case hence pass.
+					
+
+				c = child()
+				c.a				<-- 	"This is class 1"	  	
+				c.b				<--	"Class P1"
+				c.c				<--	"Class P2"
+				
+			
+			2. 	class child(P2, P1):
+					pass
+
+				c = child()
+				c.a				<-- 	"This is class 2"	  	
+				c.b				<--	"Class P1"
+				c.c				<--	"Class P2
+
+
+
+			As we can see that the value of "c.a" changes as change the order of P1 and P2
+
+			Advantage of Multiple Inheritance is that we can access distinct variable of multiple classes.
+
+		----------------------------------------------------------------------------------------------------------
+
+		3. Encapsulation :
+
+			Extending the classes such that it tries to hide the implementation of the methods of the class.
+			
+			The main objectibve of encalsulation is to hide the implementation of the program.
+
+			Eg.	class Encap:
+			
+					def __init__(self,a,b):
+						self.c = a*b
+	
+					def __str__(self):
+						return "Solution is ",self.c
+
+				temp = Encap(2,3) 		<--  Creating the object 
+
+				class Imp:
+				
+					def __init__(self, v):
+						self.output = v
+
+						print(self.output)					
+		
+			Further divided into two types :
+				1. Composition
+				2. Dynamic Extension		
+
+			
+		----------------------------------------------------------------------------------------------------------
+
+21.07.2022
+			Implementing Encapsulation.	
+			print(), len(), type() 	<--   function implementation is hidden , we can say that they are encapsulated , we just call
+							     them and have what it does but not how it does. Thats the idea of encapsulation.
+			
+			Property of encapsulation :
+		
+				Changing properties of one object does-not change the properties of other objects.
+		
+		
+				Eg :  print() function :
+					
+					print("Shr",end=' ') <-- Here we are over-rinding the value of end-parameter , instead of '\n' we are 
+					replacing it with a space ' '. 
+						
+					But this change will be visible only to that object, if we call another print() function then it will 
+					take the original value of the parameters.
+
+			Operator overloading :
+
+				Manipulating the behaviour of the operators of the objects.
+				
+				Eg:	class multip():	
+						def __init__(self,a):
+							self.a = a
+
+						def __mul__(self, other):
+							
+							return self.a * self.other	<-----------------------------------------------|
+																				|
+				From the above __mul__ we can now multiply objects of multip().						|
+																				|
+				m1 = multip(2)														|
+				m2 = multip(3)														|
+																				|
+				m1*m2 		<-- 	This line will not give an error, it will give the output as <----------|
+
+
+			
+	4. Polymorphism :
+			
+			Same entity changes behaviour on certain circumstances like the '+' operator, it acts like a addition when placed 
+			between two numbers , concatination between list and string.
+
+			eg: 	class c1:
+					def msg(self):
+						print("This is class 1")
+
+				class c2:
+					def msg(self):
+						print("this is class 2")
+
+			
+				def test(s):
+					p.msg()			
+
+				p1 = c1()
+				p2 = c2()
+
+				test(p1)		<-- This is class 1 
+				test(p2)		<-- This is class 2		Polymorphism
+
+	
+	Revision in detail : https://techaffinity.com/blog/oops-concepts-in-java/
+					
+PYTHON CORE DONE >>
+
+
+
+		
+22.07.2022
+		
+		DATABASE :
+			
+			When working in real-time project we will not get the data only in the excel sheet, the data might be present in the
+			database server (AWS, AZURE), we might take the streaming data (real-time data from sensors, from cameras,etc).
+
+			We need to pull the data from this sources. After getting the data we can start working on it.
+
+			Database are classified into several types based on the nature of the data :
+		
+				Broad categories :	1. SQL 	2. NO-SQL
+
+				
+	 		There are many more types of databases !!!									
+
+			Based on the nature of the data, the frequency of updating the data in proper terms volume,variety and varicity of 
+			the date.
+			Along with that based on the other theorem we select the type of database needed for the selection of the database.
+			( CAP theorem ).
+
+25.07.2022
+		Establishing Communication between python and Database
+
+		We need an application for database-server (MySQL-Workbench)
+		After that we need to connect our program with the database-program for that we need a connector.
+		There is a connector for every language.
+	
+		Connector : Library that is used to connect two heterogeneous systems/progams.
+		
+		We will import the  package after installation.
+
+		Write the code for connection.
+		
+		First step is importing the library
+		Then we establish the connection and store that to the object so that it can be used further.
+
+		import mysql.connector as connection
+		
+			con = connection.connect(host = ' ' , username = ' ', passwd = ' ')
+
+		After this we need to instantiate the curser object which can be used to execute the query to the conn object.
+
+			cur = con.cursor()
+
+		Execute the query :
+		
+			cur.execute("Show databases")
+
+		Cursor points to the result-set, there are functions which help to fetch the value at which the cursor points
+		either value-by-value or entire collection of value.
+					
+
+		Creating Database :
+
+			cur.execute("Create database dbname")					
+	
+		
+		Creating Table :
+	
+			cur.execute("Create table table_name (col1_name Type(size), col2_name Type(size) ) ")
+		
+		Inserting Values :
+
+			cur.execute(" Insert into table_name Values (val1, val2 , ..) ")
+
+			In this case we need to commit the changes after executing the query to reflect the changes in the database.
+
+
+26.07.2022	:
+				
+	Practice the concepts
+
+27.07.2022	:
+	
+	Small-Introduction to Pandas : It is used for file-manipulation.
+
+	In normal case the cursor.fetchall() will return the list of tuples which is not easily readable.
+	So for proper readability of data we make use of pandas library.
+
+	Pandas :	
+
+		import pandas as pd
+	
+		We make use of the pd.read_sql(  query ='', connection_object = x )
+
+		It returns the readable data.
+		No need to write cursor , then write the fetchall().
+
+		We can perform other operations easily with the help of pandas, like dumping the value excel directly into
+		sql-database.
+		
+
+28.07.22
+		
+	Saving the dataframe into the csv file, with the help of to_csv().
+	
+29.07.22
+	
+	Reading the data and converting it to csv file by making use of the modules.
+	
+	with open('file.data','r') as data:
+		next(data)						<--	first row has labels which will result in query while inserting
+										as the expected data-type is not given.	
+	
+		data_csv = csv.reader(data, delimeter = '\n')	<--   The row's value will be stored in a list  eg."['34,234,"Shryas"']"
+		print(data_csv)
+		for i in data_csv:
+			print(i)
+			for j in i:
+				cur.execute('insert into table_name values( {data} )'.format( data= j ))
+		
+		print("DONE")		
+		
+
+	PRACTICE EXERCISE TO BE DONE.
+
+		
+	NOSQL :
+		
+		No-SQL stands for not only SQL which is widely used and supports Distributed computing. The structure of the database is not
+		like the relational-one that is found in SQL.
+
+		While starting the use of database it is not necessary to completely design the structure of the database, changes can be made
+		on the go.
+		Flexibility of changing the column is added advantage.
+		Any number of documents can be added.
+
+		eg. HBASE, MONGO, Cassendra
+
+		This some of the functionality that SQL doesn't support.
+
+
+		MONGO DB:
+			1. Installation	: There are two modes - Cluster Mode and Local Mode. 
+	
+
+
+01.08.22
+	
+	DIFFERENCE BETWEEN My-SQL AND Mongo-DB
+		
+				My-SQL				Mongo-DB
+		1. It is a SQL based database		It is a No-SQL based database
+
+		2. Schema need to be defined 		No need to define the schema before
+		   before adding the data into	dumping the data in it.
+		   it.
+
+		3. It is not scalable need to 	It supports distributed system.
+		   reserve the hardware for it.
+
+		4. It is a relational database.	It is a document-based database, can 
+								store data in form of json, yaml, etc.
+
+		5. Query execution is slower.		Query execution is faster.
+
+							
+
+	The cloud version of MongoDB is the MongoDB Atlas and the local version is the MongoDB Compass.
+
+	Cluster is nothing but the machine that is created by the service provider and that cluster can be
+	accessed by the local user. 
+	The instance is accessed by the user.
+
+	Creating cluster in MongoDB Atlas.
+	cricket123 <- MongoDB cluster0	
+	
+	1:30:00 <-- PROFF 
+
+
+
+2-08-2022
+	
+	Connecting to mongo-local service.
+	
+		import pymongo
+		
+		client = pymongo.MongoClient("URL for connection")
+
+3-08-2022	
+
+	NOTE ADHOC queries :
+		Ad hoc queries are single questions or requests for a database written in SQL or another query language by the user 
+		on-demand--typically when the user needs information outside of regular reporting or predefined queries.
+	
+	Creating database :
+		
+		client["dbname"]
+	
+		Unlike My-SQL , mongo will not create the database directly we first need to insert the value in the database, then the 
+		database will be visible.
+
+	Creating Collection :
+	
+		After creating the database we need to create the collection inside the database just like tables in mysql.
+	
+		//Note : Even if the database is no db it will be created after creating the collection. But with the help of instance of db.
+
+		con = pymongo.MongoClient("url")
+
+		db = con["db_name"]
+	
+		collection = db["collection_name"]
+	
+		Then we insert the data in the collection.
+
+
+	Data Insertion :
+
+		We create the data as a collection (dictionary) first.
+
+		data_1 = {
+				name = "shr";
+				hobby = ["sports", "problem-solving"],
+			}
+
+		Then adding the data in the collection :
+	
+		collection.insert_one(data_1)
+
+		MongoDB creates unique id for each data for indexing.
+
+		Collection -> NOSQL	|||		Schemas i  -- SQL
+		
+		
+		To insert multiple_data we can create the collection as a list of dictionaries, then we will use
+		the insert_many() methos of the collection object which will insert all the collections.
+						 
+	
+	Query :
+		MongoDB Queries is not similar to mysql at all... it has its own methods and api.	
+
+		We use the collection object's method to get the record from the db.
+		
+		collection.find()
+		collection.find_one()
+
+		The way of quering is different , here we make use of colllection to filter the data.
+		
+		eg: collection.find( {'key' : val} )
+
+		For conditions like greater than , such conditions are also needed to be specified in key value pair.
+
+			collection.find( {'key' : { '$gt' : val }  )	<-- here $gt means greater than.
+
+
+		Similarly we can delete the data by making use of delete_one() or any other available method.
+
+4-08-2022
+
+		Updating the data :
+			
+			old_val = { 'prop1' : 'val'  }
+			new_val = {'$set' : {'prop1' : 'val2'}}
+		
+			collection.update_one( old_val, new_val)
+
+		Done with the basics of MONGODB, if any new things we need to learn refer documentation.
+	
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+		

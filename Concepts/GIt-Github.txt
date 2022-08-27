@@ -1,0 +1,140 @@
+GIT GITHUB :
+
+	
+	Git is a service that we use to keep track of our project such as file changes, who made the changes, when and where the changes were 
+	made, etc.
+
+	To use this service we need to install the Git-SCM (Source Code Management).
+
+	Steps :
+
+		After installing we need to follow this steps (Using terminal (Powershell in windows) ):	
+			
+			1. 	Create the project folder if needed or browse to the project folder.
+			2. 	In order to use the service , we need to initialize the git which we do by using "git init" command.
+			3. 	After that ,Git creates some folder which is required for the service like hooks, info, objects , etc.
+			4. 	Any changes made to that folder Git will pick it up.
+
+			5. 	Now lets create new text-file in that folder named as file.txt.	
+			6. 	Now the "creating the file" record is not noted anywhere in the history so the git.
+			7. 	We can view such non-tracked changes with the help of "git status" command.
+	  		   	Here we can view all the changes that are not stored in the history.
+			   	Git marks that file name in red-color.
+			8. 	Now we want to want that change to be in the history of the repository. But before that we need to add
+			   	unchanged-files from Working-directory to the Staging-Area.
+
+			    	Staging Area :- The staging area can be described as a preview of your next commit. When you create a git commit, 
+			    	Git takes changes that are in the staging area and make them as a new commit. You are allowed to add and remove 
+			    	changes from the staging area. The staging area can be considered as a real area where git stores the changes.
+
+			9.  	Now if we again check the status then we will see the files names in green color.
+			10. 	Now the record are ready to be added in the repository, we make that by commiting the changed from staging-area
+				It can be done with the help of  "git commit" command and we can also add the messages with the help of -m flag.
+		
+			11.	After that any changes made to that directory will be recorded, we need to first add them to the staging area	
+				and then commit the change.
+			12.	If you added the file to the staging-area by mistake then we can remove them from staging area by writing the
+				command "git restore --staged 'name of the file'"	
+			
+			13. 	To view the	commit history use "git log".
+
+					[	"Can't exit from git log in powershell?? Press q  ;)	]
+
+			This was about the basic operations that we can do on git.
+
+			--------------------------------------------------------------------------------------------------------------------------
+
+		What if we make a change that breaks the code or commit a change by mistake !!!		
+	
+		That's the beauty of git , we can "time-travel" and can come back to the commit we wanted.
+
+		Let's see how we can do that :
+			
+			1. 	After commiting the changes git creates the unique commit-ID for each commits which can be seen by passing the "git 
+				log"	command.
+
+			2. 	We can do this with the help of the "git reset" command.
+			3.	After doing that all the changes that were made after the mentioned commit will be unstaged. 
+			4.	We can view them with "git status".
+			5.	Then we can restore the changes with the help of "git restore" command. 
+			6. 	"git status" will be clear.
+
+			--------------------------------------------------------------------------------------------------------------------------
+
+		Stashing :
+
+			Stashing is the concept which is used when we don't want to commit the changes that are there in the staging area.
+			In stashing we save the changes in the stashing area (Imagine it like a back-stage)
+			
+			Then we can get the changes back from the stashing area.
+		
+			We can stash the changes with the help of "git stash" command.
+	
+				1. 	Before that we need to add the changed in the staging area with the help of "git add ."
+				2.	We stash the changes with the help of "git stash".
+				3.	The changes will be restored and be stored in the stash.
+			
+				---------------------------------------------------------------------------------------------------------------------
+
+			We can get the changes from the stashing area with the help of "git stash pop"
+
+			The popped changes will be in the unstaged area, which can then be staged and can be committed.
+
+		--------------------------------------------------------------------------------------------------------------------------
+			
+
+	Connecting it with Git-HUB :
+
+		GitHub is an Internet hosting service for software development and version control using Git. It provides the distributed version control
+		of Git plus access control, bug tracking, software feature requests, task management, continuous integration, and wikis for every project
+		project.
+
+
+		Steps :
+			1. Create new repository in Git-hub.
+			2. After creating the new repository a link for that repository is generated
+			3. We can connect our Git with Git-HUB with the following command :
+				"git remote add origin <link>"
+
+				git 		-->	Normal git command
+				remote 	-->	Connecting to remote server
+				add		-->	Adding the repository
+				origin	-->	Alias/Name for the link of the repository
+				<link>	-->	Link of your created repository.
+
+		--------------------------------------------------------------------------------------------------------------------------
+
+		Topics to write :
+
+			1.	Pushing the commits from local to the remote server.
+			2.	Branching
+			3.	Changing the head pointer in the graph. (Using checkout command)
+			4. 	Clone the project you want to work on.
+					a. 	Add origin/upstream  link with the local git.
+					b.	Create new branch in forked project to work on certain feature.
+					c.	Push it to our forked project in remote server.
+					d.	If we delete some commits from the local project which was there on the remote server , then we need to
+						force push the next commit as the commits are interlinked it will take care of the deleted commit and
+						will sink the commit log of the local and remote server.
+
+	 		5.	Syncing the forked-project with the help of "git pull" command / "git fetch -all -prone"  -> "git reset upstream/main".
+			6. 	Squashing multiple commits into single commits.	(git rebase)
+			7.	Concept Of merge conflict.
+	
+
+
+27/08/2022
+
+		Important Tip :
+			Clone the project where you want to work
+				1. 	Create seperate branch for each feature you are working on.
+				2. 	If you are working for multiple features on a single branch, then we will not be able to create multiple
+				   	pull requests if a commit is already made for that branch.
+	
+
+
+	
+
+
+
+

@@ -1,0 +1,94 @@
+20/8/2022
+Linux Commands :
+	
+	ls		
+		ls -r
+	pwd
+	cd
+	mkdir
+	echo  $Path
+	vi
+	cat
+	>(Redirection)	<--  Putting the output to something else.
+		echo "Hi" > file.txt	
+		New file txt will be created if it is not there and the value Hi will be added. If the file is present already then it will
+		over-write the value.
+
+	man
+	tunnelling (Pipe | ) -> Use the output generated to perform different task.
+		cat file.txt | tr a-z A-Z >  new_file.txt	
+
+	\ is used when we need to write the command in multiple lines.
+
+	-p Command  -->	mkdir -p  random/middle/hello  	<--	 will create "middle" folder between random and hello folder.
+	
+
+	cp  	<-- 	cp file_name destination_file_name
+	mv 	<-- 	Command is used to move or rename the file .
+	rm	<-- 	Permanently removing the file.
+	sudo  <-- 	super user do
+	df 	<-- 	disk space usage
+	du 	<-- 	disk usage stats
+	head	<-- 	can be used to view the first few lines of the file.
+	diff	<-- 	finding out the difference between the two commands.
+	locate<-- 	To find the location of the file.
+
+21/8/2022
+
+	find	<-- Used to find all the files of all the folder present in the current directory.
+		-type f
+		-name ""	<-- name of the file along woth the extension
+		-iname   	<-- case in-sensitive name	
+24/8/2022
+
+		-mmin 	<-- 	Files modified More (+) /Less (-)  than the specified minutes.
+		-mtime	<-- 	Files modified More (+) /Less (-)  than the specified days.
+		-chmod	<-- 	Command to change the file permission for the type of users.
+			
+			Eg :  chmod u=rwx, g = rx, o = r <filename.extension>
+				Where	u = Users,		r = Read 
+					g = Group,		w = Write
+					o = Others		x = Execute
+
+				Other Forms of Permission can be given with the help of Octal Numbers :
+				4 = Users 	3 = Groups 	1 = Others 	
+
+				The advantage is that we can provide the permissions for all types of users with only 3 digits 
+				
+				Eg : 	chmod 777 <filename.extension>
+
+					First digit refers to the type User.
+					Second digit refers to the type Group.
+					Third digit refers to the type Others.
+
+		-grep 	<-- 	Used to find the contents present in the file.
+			Eg: 	grep "value to be searched" <filename.extension>
+				Tags :	-n	<- 	Number Of Lines
+						-w	<- 	Words to find
+						-i	<- 	Case Insensitive
+
+		Terminal Shortcuts :
+
+
+
+
+
+
+			Ctrl+a 	<--	Moves the cursor to the beginning of the typed command.
+			Ctrl+e	<--	Moves the cursor to the end of the typed command.
+			Ctrl+u	<--	Deletes the command.	
+			Ctrl+k	<-- 	Deleted commands after the cursor.
+			Ctrl+l	<--	Clearing the Screen
+
+
+
+
+
+
+
+
+
+
+
+
+
