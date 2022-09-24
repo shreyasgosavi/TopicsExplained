@@ -1,0 +1,98 @@
+Hibernate 
+
+TERMS :
+ 	BEAN	
+	ORM
+
+Steps :
+	1. Create the Bean.
+	2. Set the properties Of the bean.
+	3. Create the configuration file.	(Defines the sql configuration along hibernate properties)
+	4. In the main class create the Object whose data we want to save.
+	5. Create Configuration class, SessionFactory, Session .
+	6. Commiting the changes at the end if want to update the data.
+
+
+	
+Using the hibernate framework we are going to save the value of the properities of the object directly into the table.
+
+Methods :
+	save()		<--	Available in the Session interface present in the hibernate framework
+	Session()		<--	Interface which creates the session from the SessionFactory interface.
+	SessionFactory()	<--	Interface that builds the session based on the configuration provided by Configuration class.
+	Configuration	<--	Class which sets the configuration provided by the user for further use.
+	
+Configuration:
+	For configuration we need to provide the XML file which will have tags related to the hibernate configuration.
+	
+
+	<!DOCTYPE hibernate-configuration SYSTEM 
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">	<-- Header is important which has the attiribute definition.
+
+	<hibernate-configuration>
+
+		<session-factory>
+			<property name = "P1" > Value1 </property>
+			<property name = "P2" > Value2 </property>
+		</session-factory>
+
+	</hibernate-configuration>
+
+Mapping File :
+	To map the class with the table of the database.
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+	
+	<hibernate-mapping>
+		<class name = "bean_name" column = "db_table_name">
+			<id name = "property_name" column = "cname"> 
+				<generator class = "assigned"/>		<-- We specify the Primary key	
+			</id>
+			<property name = "property_name" column  = "" />
+		</class>
+	</hibernate-mapping>
+
+	
+	The mapping file is mentioned in the hibernate configuration file.
+	We can eliminate the mapping files with the help of the annotations. 
+
+Annotations :
+	In the bean class we add @Entity annotation for referring to the table.
+	@Id annotation is used to identify the primary key.
+
+
+Fetching Strategy in Hibernate :
+	
+		1. Lazy-Initialization	: Intializing the object when it is needed. Here we initialize only first-level member objects.
+		2. Eager-Initialization	: Fetches all the related Data.
+
+Caching in Hibernate :
+		
+	Levels Of Cache's :
+
+		1. First Level Cache (Default) :	
+			Cache stores the accessed value in it and is available for that session only.
+			If the data is already available in the cache then the db access is not required.		
+
+		2. Second Level Cache :
+			Here the data stored in a cache is accessible to all the sessions, configuration is required.
+
+
+	We configure the caching in the configuration file where we mention the permission and the provider of the caching strategy.
+	We make use of third-party caching service provider. (eh-cache)
+	Finally we need to specify the entity that supports caching, we do that with the help of annotation.
+	@Cachable and @Cache
+
+
+	
+
+	
+
+
+
+
+
+	
