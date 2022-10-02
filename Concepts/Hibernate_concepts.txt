@@ -86,6 +86,82 @@ Caching in Hibernate :
 	Finally we need to specify the entity that supports caching, we do that with the help of annotation.
 	@Cachable and @Cache
 
+ HQL: 
+	Hibernate-Query Language - It is the language used in hibernate framework to query the database in different fashion.
+					   It can be used to perform complex queries which the defined methods of hibernate can't. 
+	
+	Comparing SQL and HQL :
+		Lets assume we have a student table which has the attributes 'student_id', 'student_name', 'student_rollNo'.
+
+	Eg : We need to get all the roll-numbers from the student table.
+	
+	SQL : Select student_rollNo from student;		<--  	In SQL student_rollNo is column and Student is a table.
+	HQL : Select student_rollNo from Student;		<-- 	In SQL student_rollNo is property and Student is a class hence it has to be
+										capital.
+
+	Eg : Get all the data from the Student table.
+	
+	SQL : Select * from Student;
+	HQL : from Student
+
+	Note : If we want to use "SQL" in Hibernate then we need to make use of "native-query".
+	
+	We use Query class of hibernate to pass the query.
+	Before that we create the session.	
+
+	Case1	: 
+		Select all data from the Student Table.	
+	
+		Configuration cfg = new Configuration().configure("hibernate.cfgmtomany.cfg.xml").addAnnotatedClass(Human.class);
+		SessionFactory sf = cfg.buildSessionFactory();
+		Session s = sf.createSession();
+		
+		Query q = s.createSession("from Student");
+		
+		The result is in the form of list of objects.
+	
+		List<Student> s_list = q.getList();
+
+		In SQL we used to get the resultSet nd then we used to iterate through it.
+
+	Case2	:
+		Fetching one data from the database.
+
+		In this case we know that the fetched data will be unique and hence we need to make use of the different method.
+
+		Query q = s.createSession("From Student where student_rollNo = 2");	
+		Student s1 = q.uniqueResult();
+
+		We will get the Student Object from the operation.
+
+	Case3	:
+		Fetching specific columns from the Table.
+		
+		Here the data-type of the resultant Object is not known hence the result is the array of Objects. 
+		Letss see :
+
+		Query q = s.createQuery(Select student_id, student_name from Student where student_id = 2);
+
+		Object[] result = (Object[]) q.uniqueResult()
+
+	Case4	:
+		Fetching multiple rows of specific columns.
+		
+		In this case we need the List<Object[]> in order to store the data in an object so we will use the
+		list() method to get the Collection of data.
+
+
+	
+	Passing custom values in the query (like PreparedStatement in MYSQL jdbc).
+		
+		To pass custom value we place ':' before the variable in the query.
+	
+		Eg :	int a = 20;
+			Query q = session.createQuery("Select sum(student_marks) from Student where student_rollNo = :a");	
+			q.setParameter("a",a);
+	
+			Long marksData = (Long)q.uniqueResult();
+
 
 	
 
