@@ -163,7 +163,29 @@ Caching in Hibernate :
 			Long marksData = (Long)q.uniqueResult();
 
 
+	Hibernate States :
 	
+	While working with the hibernate we create objects and with the help of O.R.M. we store it in the database. 
+	The process from creation of the objects to storing the contents in the database goes through several states
+	behind the scene.
+
+	
+	States of objects in hibernate :
+		1. Transient State
+		2. Persistant State
+		3. Detatched
+		4. Removed
+		5. End state (Garbage Collection)
+
+	Comparing Hibernate get() and load() methods :
+		
+		Both methods are used to fetch the data from the database, but their way of performing the action varies.
+		
+		get() method fires the query once the method is invoked whereas load() method fires the query only if the 
+		object is used in further steps.
+	
+		get() method returns null when no data is found in the database where-as load() method returns an exception
+		when no data is found.
 
 	
 
