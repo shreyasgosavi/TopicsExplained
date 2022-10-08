@@ -1,0 +1,93 @@
+What is a shell?
+Interprets user commands which are given directly by the user or can be read from shell-script.
+Shell-scripts are interpreted.
+
+Different types of shell :
+	1. sh		: Bourne Shell
+	2. bash		
+	3. dash
+	4. rbash
+
+
+Bash file :
+
+1st line : we specify the bash we are using. (Optional)
+
+Comments #
+
+Variables :	Used to store the data.
+		There are two types of variables : 	1. System Variable  (All Caps)		
+							2. User Defined Variable
+
+		Variables are defined by normal name.
+		Eg : 	name = SHR		<--- There should be no space in between 'name',
+			'=' and 'SHR'.
+		
+		name=SHR	<-- Correct
+		name = SHR	<-- Incorrect
+		
+		Variables are accessed by '$'.
+		
+		There are certain policies for variable name declaration.
+
+		
+Taking inputs :
+	In bash we can take input with the help of the "read" command.	
+
+	Eg :I	echo "Enter name:
+		read name(name is a variable)
+	
+	    II	echo "Enter names"
+		read n1 n2 n3
+		echo "$n1 $n2 $n3"
+
+	    III	read -p 	: "ENter the value" variable_name
+
+	    IV	read -s		: For hiding the password.
+
+	     V	read -a	varName	: Taking array inputs
+
+		Fetching array value through indexes => ${arrayName[index]}
+		
+		echo "Values : ${varName[0]}, ${varName[1]}"
+
+	    VI	By default the values are stored in REPLY system variable
+
+Passing Arguments :
+	
+	We can pass the arguments while giving the commands in shell. By default the values are 
+	stored in $1, $2, $3, $4.
+
+	By default the list of arguments are stored in the array variable $@ .
+		
+	Eg. echo $@	
+
+
+Conditional Statements:
+
+	Sturcture of if-else statement :
+	
+		if [condition]
+		then
+			statement
+		elif
+		then
+			statement
+		else
+			statement	
+		fi			
+	
+
+
+
+		
+
+
+
+
+
+
+
+
+		
+
