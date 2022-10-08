@@ -12,6 +12,10 @@ Different types of shell :
 Bash file :
 
 1st line : we specify the bash we are using. (Optional)
+	
+	#!  	<-- To specify the type of bash we are using
+			
+	Eg: #! /bin/bash	<--	In this case we are using bash shell
 
 Comments #
 
@@ -32,26 +36,38 @@ Variables :	Used to store the data.
 
 		
 Taking inputs :
+
 	In bash we can take input with the help of the "read" command.	
 
-	Eg :I	echo "Enter name:
-		read name(name is a variable)
+	Syntax : read var_name	
+
+
+	Eg :I		echo "Enter name :"
+			read name(name is a variable)
 	
 	    II	echo "Enter names"
-		read n1 n2 n3
-		echo "$n1 $n2 $n3"
+			read n1 n2 n3
+			echo "$n1 $n2 $n3"
+	
+	    III	read -p 		: "Enter the value" variable_name	<-- Enters the value next to  the String using 'p' flag.
 
-	    III	read -p 	: "ENter the value" variable_name
+	    IV	read -s		: For hiding the text.	//silent flag
 
-	    IV	read -s		: For hiding the password.
-
-	     V	read -a	varName	: Taking array inputs
+	     V	read -a varName	: Taking array inputs
 
 		Fetching array value through indexes => ${arrayName[index]}
 		
-		echo "Values : ${varName[0]}, ${varName[1]}"
+		echo "Values : ${varName[0]}, ${varName[1]}"	
+		
+		If we print only name of the array variable eg. "echo $varName" , value of first index is printed.
 
 	    VI	By default the values are stored in REPLY system variable
+
+	   Note : 
+		While accessing the value from the array if the index is exceeded to the positive side then no error message is shown by 
+		the shell, only space is displayed.
+
+		But while exceeding the index from the negative side then the shell throws an error "bad array subscript"
 
 Passing Arguments :
 	
@@ -59,28 +75,208 @@ Passing Arguments :
 	stored in $1, $2, $3, $4.
 
 	By default the list of arguments are stored in the array variable $@ .
-		
+	
+	Assigning them to a variable :
+	
+	var=("$@")	<-- use double quotes
+
+	echo ${var[0]}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	Note :
+		while Echoing ""	<-- is used to get the value of the variable; 
+				  ''  <-- prints the variable name as it is.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 	Eg. echo $@	
+
+	The total number of the elements in an array is stored in default variable " $# "
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
 
 
 Conditional Statements:
 
+	NOTE :
+ 		Take care of the spaces while writing the scripts.... 
+
 	Sturcture of if-else statement :
 	
-		if [condition]
+		if [ condition ]
 		then
 			statement
-		elif
+		elif [condition]
 		then
 			statement
 		else
 			statement	
-		fi			
+		fi	
+
+	In the condition part we can compare Strings, integer or any other condition.
+	
+	Based on the comparators the format of specifying the conditions changes.
+
+	Different Comparators :
+		
+	Integers :
+		eg. val=35
+
+		-eq	--> is equal to 			--> if [ $val -eq 35 ]	
+		-ne	--> not equal to			--> if [ $val -ne 35 ]
+		-gt	--> greater than			--> if [ $val -gt 35 ]
+		-lt	--> less than			--> if [ $val -lt 35 ]
+		-ge	--> greater than or equal to	--> if [ $val -ge 35 ]
+		-le	--> less than or equal to	--> if [ $val -le 35 ]
+
+	Note : for arrow comparisons we use "(( conditions ))"" format
+
+		 <	--> Less than			--> if (( $val <  35 ))
+		 >	--> Greater than			--> if (( $val >  35 ))
+		 <=	--> Less than or equal to	--> if (( $val <= 35 ))
+		 >=	--> Greater than or equal to	--> if (( $val >= 35 ))
+	
+
+	String Comparisons :
+		eg val = b
+		
+		=	--> is equal to 			--> if [  $val =  "b" ]
+		==	--> is equal to 			--> if [  $val == "b" ]
+		!=	--> not equal to 			--> if [  $val != "b" ]
+
+	
+	Note : for arrow comparisons we use "[[ conditions ]]"" format	
+
+		<	--> less than (alpha. order)		--> if [  $val <  "b" ]	
+		>	--> greater than (alpha. order)	--> if [  $val >  "b" ]	
+		-z	--> string is empty			--> if [  $val <  "b" ]	
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	
+
+File Inputs :
+
+	First we need to check the existance of the file in the system. For that we use certain flags in the conditional
+	statements.
+
+	-e	flag is used with "if" to check the existence of the file.
+	-d	To find the existence of directory.	
+	-b 	Block SPecial file
+	-c 	Character special file
+	-s 	To check if the file is empty or not
+	-r	To check if the file has read permission
+	-w	To check if the file haas write permission
+	-x	To check if the file haas execute permission
+
+	
+	Eg :
+		echo "Enter FileName : "
+		read	fileName
+
+		if [ -e fileName ]
+		then
+			echo "File found"
+		
+		else
+			echo "File not found"
+
+	There are two types of files : 1. Character Special File	2. Block special file (Images, video)
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	
+
+Logical Operator
+	
+AND Operator:
+
+	Like any other programming language here also we can make use of the "and" operator in conditional statements.
+
+	Eg : 	if [ $age -ge 18 ] && [ $age -le 25 ]	OR 	if [[ $age -ge 18  &&  $age -le 25 ]]
+		then
+			echo "HELLOOOOOOO"
+		fi
+	
+	Other way : Use '-a' flag
+	
+		if [ $age -ge 18 -a $age -le 25 ]	
+		then
+			echo "HELLOOOOOOO"
+		fi
+
+OR Operator:
+
+	Eg : 	if [ $age -ge 18 ] || [ $age -le 25 ]	OR 	if [[ $age -ge 18  ||  $age -le 25 ]]
+		then
+			echo "HELLOOOOOOO"
+		fi
+	
+	Other way : Use '-o' flag
+	
+		if [ $age -ge 18 -o $age -le 25 ]	
+		then
+			echo "HELLOOOOOOO"
+		fi
+
+	
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	
+
+Arithimetic Operators :
+
+	Here performing the arithmetic operations in normal way doesn't work.
+
+	Eg :  num1=2
+		num2=3
+
+		num3=$num1+$num2
+	
+		echo $num3	<--	Output will be a string 2+3.
+
+	We need to follow a way in which it will perform the arthimetic operations.
+
+		num3 = $(( num1+num2 ))
+
+		echo $num3	<--	Output is 5.
+
+	In similar fashion we can perform all other arithimetic operations.
+
+	
+	Other Way :
+	
+	We can multiply the numbers using the "expr" key-word.
+
+	Eg: 	num4=$(expr $num1 + $num2)
+	
+	NOTE : For multiplication we need to make use of escape character \* .
+		
+		num4=$(expr $num1 \* $num2)
+		
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	
+
+
+Operations Decimal Numbers :
+	
+	By-default bash cannot perform floating-point operations, in order to do that we need to make use of the 'bc' program.
+
+	Eg :
+		echo "45+45" | bc 	<-- 	The output of the echo command is given as the  input to the bc command which performs
+							the operation.
+
+		bc is a program which can also perform other tasks like finding the sqrt of a number as it consists of several math 
+		library which has functions for performing particular operations.
+
+		Eg:	Finding the sqrt of a number.
+	
+			
+	
+		
 	
 
 
 
-		
 
 
 
