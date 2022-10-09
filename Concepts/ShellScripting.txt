@@ -257,7 +257,7 @@ Arithimetic Operators :
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	
 
 
-Operations Decimal Numbers :
+Operations on Decimal Numbers :
 	
 	By-default bash cannot perform floating-point operations, in order to do that we need to make use of the 'bc' program.
 
@@ -269,15 +269,155 @@ Operations Decimal Numbers :
 		library which has functions for performing particular operations.
 
 		Eg:	Finding the sqrt of a number.
+		
+			echo "scale=3;sqrt(565)" | bc -l	<--	with -l we are loading the math library which has the sqrt function.
+
+	
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	
+
+
+Case Statements :
+
+	Different version of conditional statement in which we check the value of the variable and according to that we execute the 
+	conditions.
+
+	Syntax :
+	
+	case "Expression" in
+		"Condition 1" )
+			Statement ;;	<--	for marking the end of the block
+	
+		"Condition 2" )
+			Statement ;;
+
+		"Condition 3" )
+			Statement ;;
+
+		* )				<--	If none of the cases matches.
+			statement ;;
+
+	NOTE :
+		We can also add regular-expression in the condition.
+	
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	
+
+
+Array Variables :
+	
+	BASH supports single-dimensional array.
+
+	A variable is declared as an array at the time of creation.
+	
+	Eg:	os=("ubuntu" "MACOS" "Windows")
+
+	Here 'os' is an array variable.		
+	
+	Accessing the arrays:
+
+		1.	echo	"${os[indexValue]}"	<--	Getting the value at particular index.
+		2. 	echo	"${os[@]}"			<--	Prints all the element present in an array.
+		3.	echo 	"${!os[@]}"			<--	Prints the index value of an array
+		4.	echo	"${#os[@]}"			<--	Prints the length of an array.
+	
+	We can add new value to the array with normal syntax:
+		
+		os[4]="Chrome OS"
+
+	unset is a keyword that is used to remove the element at the specified index.
+
+		unset os[2]	<--	Removes element at the 2nd index.
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	
+
+While Loops
+	
+	Loops are used to repeat the command execution. 
+	Syntax :
+	
+	while [ Condition ]
+	do 
+		Statement
+	done
+
+	eg:	
+		value=1
+		while [ $value -le 5 ]
+		do 
+			echo "Value is $value"
+			#value=$(($value+1))
+			(value++)
+		done
+	
+
+	NOTE :
+		For haulting the program use sleep command.
+		EG:	sleep 5	<-- 	Time in seconds
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	
+
+READING FILES USING WHILE LOOP
+
+Reading data from the file :
+	
+We can do this with the help of while loop in several ways.
+
+Method 1 : Input Redirection 
+
+	while read p
+	do
+		echo $p
+	done	<  fileName
+
+
+Method 2 : Using pipe
+
+	cat fileName | while p
+	do
+		echo $p
+	done	<  fileName
+
+
+Method 3 : Using IFS (Internal Field Seperator) 
+
+
+------------------------------------------------------------------------------------------------------------
+	
+	NOTE :IFS specifies the seperator that can be used to split the data while displaying
+		the data in the output file.
+
+	Eg:	IFS=':';val="34:45:32";echo $val	<--	Output is : 34 45 32
+
+
+------------------------------------------------------------------------------------------------------------
+	
+	while IFS=' ' read -r p	<--	prevents the interpretation of the '\'
+	do
+		echo $p
+	done	<  fileName
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	
+	
+UNTIL LOOPS
+
+	Used for repeating the execution of commands, its functionality is exactly opposite to
+	that of a while-loop, meaning the statements are executed until the condition is false.
+
+	val = 1
+
+	until [ $val -gt 5 ]
+	do
+		echo "Value is $val"
+		val=$((val+1))
+	done
+	
+	Output :	
 	
 			
 	
-		
 	
-
-
-
-
 
 
 
