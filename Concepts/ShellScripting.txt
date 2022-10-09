@@ -414,8 +414,64 @@ UNTIL LOOPS
 	done
 	
 	Output :	
+		
+		Value is 1
+		Value is 2
+		Value is 3
+		Value is 4
+		Value is 5		
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	
+
+FOR LOOPS :
 	
+	Used to iterate over the list or can also be used to execute the command multiple times.
+	
+	Syntax :
 			
+		for val in v1 v2 v3			OR 	for val in {START..END..STEP_SIZE}
+		do							do
+			echo "Value is $val"				echo "Value is $val"
+		done							done
+
+					
+					for (( i=0; i<5; i++ ))
+					do
+						echo "Value is $i"
+					done
+
+	Eg: 	It can be used to run the commands one-by-one.
+		
+		for i in ls date		<--	This command will execute the command one at a time.
+		do 
+			$i
+		done				
+		
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	
+
+SELECT LOOP
+
+	Select command is used to create the menus from the specified list.
+	
+	Eg:	select val in Samsung Apple Sony HTC		<-- This is the simple example of a select command . For more examples refer the link mentioned below
+		do
+			echo "You selected $val brand"
+		done
+
+
+	Link : https://linuxhint.com/bash_select_command/
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	
+
+
+
+
+
+
+
+
 	
 	
 
