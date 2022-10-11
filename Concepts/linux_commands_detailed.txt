@@ -1,0 +1,55 @@
+1. Linux Commands
+
+pwd
+
+
+cd [dir]
+
+	By default "cd" it navigates to the home directory.
+	
+	'cd /'		<--	navigates to the root directory
+
+
+	
+ls [options] [file-name]	{ /	->	root directory }
+				{ ~	->	home directory }
+
+	ls -l		<--	listing in long format
+	ls -S		<--	Sorts the list by the size (DESCENDING)
+	ls -f	
+	ls -d *\	<--	For listing the folders in the present directory.	
+
+
+
+	
+cat [option] fileName	(Takes input as a text and echo's it to the output stream
+			and does it until it reaches the EOF.)
+
+	It has 3 functions 
+		1. Displaying text file
+		2. Combining copies of text-file.
+		3. Creating new text-file.
+
+	cat -b		<--	Adds line number to the non-empty lines.
+	cat -n		<--	Adds numbering to all the lines.
+	cat -s		<--	Squeezes many blank line to one blank line.
+	cat -E		<---	Adds '$' to the end of each line to signify the end
+				of the line.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+NOTE :
+	wc is a utility tool for performing certain operations like returning total number
+	of lines, total number of words, etc.
+
+	wc -l/w/c	
+
+	EG:	To get the details of the file 
+		
+		wc file.txt
+
+	Output  23 58 88 file.txt	<-- 	23 number of lines
+						58 number of words
+						88 size in bytes		 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
