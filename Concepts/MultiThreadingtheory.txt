@@ -1,0 +1,62 @@
+History :
+
+	Earlier Processor used to execute only one process at a time.
+	
+	Then came the concept of Multi-tasking in which the CPU executes program for small interval
+	of time and switches the execution of the program. It does it so fast that the end user can't
+	find the difference.
+
+	Multithreading : Occurs within the application.
+
+	Advantages :	1.Better CPU utilization 	2.Better I/O utilization
+			3.High Application Responsiveness
+
+Multi-threading example :
+	
+	Threads enable to execute multiple parts of the program at the same time.
+	Normally program is executed by a thread when we start its.
+
+	When we use method like start() of the thread class then it creates another sub-task
+	and executes it concurrently with the main process.
+
+	We can create thread in 4 ways :
+
+		1. Extending the Thread Class
+		2. Implementing Runnable interface	(Recommended)
+		3. Create anonymous implementation of Runnable interface
+		4. Creating a lambda-expression	implementing Runnable interface.
+
+	Stopping the thread :
+		We can stop the thread with the help of the stop() method, but that method 
+		is deprecated.
+
+		We need to create our own stop implementation by using the simple logic of
+		looping which depeneds on certain condition.
+
+
+	Setting the process as background process :
+		We can set the process as a background process using setDaemon() method.
+
+	If we want the process to take hault until a thread completes its execution then we
+	use the join method with the thread. 
+	
+	
+Threads in java is handled by OS, hence they are heavy and somtimes contains the data that is 
+not necessary, to avoid this developers developed "Project LOOM: and the aim is to create
+light-weight threads.
+
+Issues in Multi-threading :
+	1. Race-condition
+	2. Data update visibility between the threads.
+	3. Cache coherence issue.
+
+	The above problems can be solved by volatile key-word, synchronised block.
+
+
+
+
+
+
+		 
+
+
