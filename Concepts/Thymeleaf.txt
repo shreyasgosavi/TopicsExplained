@@ -1,0 +1,25 @@
+Thymeleaf :
+		It is a templating language that is used in java-web application. Templating
+	language usually consists of expressions that is used along with templates of
+	HTML, JS, XML, etc.
+
+
+	Templating Engine :
+		They are used to render data as HTML or other format through a template.
+	Used for visualising the data that comes from the server or database.Templates are
+	written in some templating language which combines the html with some special 
+	templating tags. They are also used to generate documents in other format.
+
+
+		Once Spring see's Thymeleaf starter dependency in the class-path then it 
+	configures the View-Resolver automatically, for example under the resources folder 
+	of the spring-boot project static content like images, css, js files are places in
+	the static folder and html contents are places in the templates folder.
+
+		As mentioned above we create HTML file in the templares folder and css and 
+	js in the static folder.
+	
+		In html file we add link so to the thyme-leaf so that we can use the thyme-
+	eaf attributes.
+	
+		" <html xmlns:th="https://www.thymeleaf.org"> "
